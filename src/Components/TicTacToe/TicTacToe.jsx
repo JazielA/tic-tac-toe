@@ -9,9 +9,17 @@ export const TicTacToe = () => {
   let [count, setCount] = React.useState(0);
   let [lock, setLock] = React.useState(false);
   const toggle = (e, num) => {
+    // lock: si está activado, no hace nada.
     if (lock) {
       return 0;
     }
+
+    /*
+    -count % 2 === 0: si es turno par, dibuja círculo; si es impar, cruz.
+    -e.target.innerHTML: cambia el contenido de la casilla (directamente en el DOM).
+    -data[num]: guarda si la casilla es "x" o "o".
+    -setCount(++count): aumenta el contador.
+    * */
     if (count % 2 === 0) {
       e.target.innerHTML = `<img src=${circle_icon} alt="circle" />`;
       data[num] = "x";
@@ -27,6 +35,14 @@ export const TicTacToe = () => {
       <h1 className="title">
         Tic Tac Toe Game In <span>React</span>
       </h1>
+
+      {/* Estructura del tablero */}
+      {/* 
+      -Se crean tres filas (row1, row2, row3).
+      -Cada fila tiene tres divs (boxes) que representan las casillas.
+      -e: el evento del clic.
+      -num: la posición en el array data (0 a 8).
+      */}
       <div className="board">
         <div className="row1">
           <div
