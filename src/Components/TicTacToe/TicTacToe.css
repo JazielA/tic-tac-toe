@@ -50,3 +50,7 @@
   display: flex;
   margin: auto;
 }
+/* tamaño de las imagenes dentro de las cajas */
+.boxes img {
+  margin: 50px 50px;
+}
