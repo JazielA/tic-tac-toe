@@ -10,6 +10,7 @@ export const TicTacToe = () => {
   let [lock, setLock] = React.useState(false);
   let titleRef = React.useRef(null);
 
+  // Referencias para las casillas
   let box1Ref = React.useRef(null);
   let box2Ref = React.useRef(null);
   let box3Ref = React.useRef(null);
@@ -20,6 +21,7 @@ export const TicTacToe = () => {
   let box8Ref = React.useRef(null);
   let box9Ref = React.useRef(null);
 
+  // Array de referencias
   let box_array = [
     box1Ref,
     box2Ref,
@@ -36,6 +38,10 @@ export const TicTacToe = () => {
     // lock: si está activado, no hace nada.
     if (lock) {
       return 0;
+    }
+    // Si la casilla ya tiene contenido, no hace nada.
+    if (data[num] !== "") {
+      return; // Ya tiene un elemento, no hacer nada
     }
 
     /*
@@ -87,7 +93,7 @@ export const TicTacToe = () => {
   const reset = () => {
     setLock(false);
     data = ["", "", "", "", "", "", "", "", ""];
-    titleRef.current.innerHTML = "Tic Tac Toe Game In <span> React</span>";
+    titleRef.current.innerHTML = "Tic Tac Toe Game In  <span> React</span>";
     box_array.map((el) => {
       el.current.innerHTML = "";
     });
